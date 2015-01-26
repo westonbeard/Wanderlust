@@ -20,7 +20,7 @@ Technologies Employed
  - Everytrail API (http://www.everytrail.com/developer)
 
 Setup
--------
+---
 	rake db:create
 	rake db:migrate
 	rake db:seed
