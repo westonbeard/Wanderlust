@@ -18,13 +18,13 @@ Technologies Employed
 ------------
  - Rails
  - Everytrail API (http://www.everytrail.com/developer)
+
+Setup
+-------
+	rake db:create
+	rake db:migrate
+	rake db:seed
  
 ERD
 ------------
 ![](erd.png)
-
-Setup
------
-	rake db:create
-	rake db:migrate
-	rake db:seed
