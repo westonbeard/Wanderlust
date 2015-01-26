@@ -21,7 +21,7 @@ Technologies Employed
  
 ERD
 ------------
-This is an [ERD](erd.png)
+![](erd.png)
 
 Setup
 -----
