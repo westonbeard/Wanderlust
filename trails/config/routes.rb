@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-  get 'main/index'
-
+  root 'main#index'
   get 'main/trail'
-
   get '/login' => 'session#new'
   post '/login' =>  'session#create'
   delete '/logout' => 'session#destroy'
-  
-  root 'main#index'
   
 
 

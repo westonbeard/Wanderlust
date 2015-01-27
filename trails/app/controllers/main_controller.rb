@@ -17,7 +17,7 @@ class MainController < ApplicationController
 
        @response = HTTParty.get("http://www.everytrail.com/api/index/search", :basic_auth => auth, 
            :query => {:lat => @coords[:lat], :lon => @coords[:lon],
-                      :proximity => 25, :limit => 10},
+                      :proximity => 25, :limit => 6},
                       :format => :xml
                       )
        doc = Nokogiri.XML(@response.body)
