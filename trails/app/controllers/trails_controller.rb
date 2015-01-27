@@ -24,8 +24,7 @@ class TrailsController < ApplicationController
   # POST /trails
   # POST /trails.json
   def create
-    @trail = Trail.new()
-    @trail.body
+    @trail = Trail.new(trail_params)
 
     respond_to do |format|
       if @trail.save
@@ -79,7 +78,7 @@ class TrailsController < ApplicationController
        
       # p @response.inspect
       #     # Never trust parameters from the scary internet, only allow the white list through.
-      #     def trail_params
-      #       params.require(:trail).permit(:name, :url, :geocode, :comments)
-      #     end
+        def trail_params
+        params.require(:trail).permit(:name, :url, :geocode, :comments)
+        end
 end
