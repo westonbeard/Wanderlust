@@ -22,6 +22,7 @@
   Hello, <%= current_user.name%>
          <%= link_to "logout", "/logout", method: :delete%>
   <%end%>
+ <%=link_to "create account", "/users/new" %>
      
   </header>
 <%= yield %>
