@@ -24,8 +24,7 @@ class TrailsController < ApplicationController
   # POST /trails
   # POST /trails.json
   def create
-    @trail = Trail.new()
-    @trail.body
+    @trail = Trail.new(trail_params)
 
     respond_to do |format|
       if @trail.save
@@ -67,19 +66,9 @@ class TrailsController < ApplicationController
     def set_trail
       @trail = Trail.find(params[:id])
     end
-      # require 'httparty'
-      # #this is jesse's code to ge the API
-      # #everytrail API
-      # auth = {
-      #   username: "75df33276084418f8882f59ba135cddd",
-      #   password: "60ed78c6c060ee94"
-      # }
-       
-      # @response = HTTParty.get("http://www.everytrail.com/api/index/search?q=yosemite", :basic_auth => auth)
-       
-      # p @response.inspect
-      #     # Never trust parameters from the scary internet, only allow the white list through.
-      #     def trail_params
-      #       params.require(:trail).permit(:name, :url, :geocode, :comments)
-      #     end
+    
+
+        def trail_params
+        params.require(:trail).permit(:name, :url, :geocode, :comments)
+        end
 end

@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
-  controller :session do
-    post 'login' =>  :create
-    delete 'logout' => :destroy
-  end
-  root 'users#index'
+  get 'main/index'
+
+  get 'main/trail'
+
+  get '/login' => 'session#new'
+  post '/login' =>  'session#create'
+  delete '/logout' => 'session#destroy'
+  
+  root 'main#index'
   
 
 
 
   get 'users/new', as: :sign_up
-    resources :users do
-      resources :trails
-    end
-      
+  resources :users 
+  resources :trails
   
   
 

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def authorize
     if not_logged_in?
-      redirect_to login_url, notice: "Please log in"
+      redirect_to root_url, notice: "Please log in"
     end
   end
 
