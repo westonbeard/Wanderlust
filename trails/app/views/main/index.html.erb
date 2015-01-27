@@ -1,0 +1,19 @@
+<h1>Trails</h1>
+<%= @user_ip %><br>
+<%= @coords %><br>
+<ul>
+<% @guides.children.each do |guide| %>
+    <li> 
+    <% guide.children.each do |child| %>
+       
+      <% if child.name == 'title' %>
+       title: <%= child.text %>
+      <% end %>
+      <% if child.name == 'picture' %>
+        <%= image_tag child.children[0].text %>
+      <% end %>
+      
+    <% end %>
+    </li>
+<% end %>
+</ul>
