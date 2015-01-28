@@ -6,11 +6,11 @@ User Stories
 ------------
 Users should be able to:
 
- - sign up and log in (by COB, Min)
- - search trails by zip code, or city/state name (by COB, Weston, and Kurt)
- - look at a list of trails with a link to the trail page (optional. map of the trail): the same as above
+ - sign up and log in
+ - search trails by zip code, or city/state name
+ - look at a list of trails with a link to the trail page
  - favorite trails
- - follow other users (by seeing their favorites)
+ - follow other users
  - comment on trails
  - rate trails (5 stars)
 
