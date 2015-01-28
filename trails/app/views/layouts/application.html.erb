@@ -1,13 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Trails</title>
+
+    <!-- Bootstrap Core CSS -->
+    <%= stylesheet_link_tag "bootstrap.min.css" %>
+
+    <!-- Custom CSS -->
+    <!-- <%= stylesheet_link_tag "stylish-portfolio.scss" %> -->
+    <%= stylesheet_link_tag "animate.css" %>
+    <%= stylesheet_link_tag "search.css" %>
+
+
+    <%= javascript_include_tag "modernizr.custom.js" %>
+
+    <!-- Custom Fonts -->
+   <!-- MISSING FILE <%= stylesheet_link_tag "font-awesome.min.css" %>  -->
+   <%= stylesheet_link_tag'http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' %>
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 </head>
 <body>
+   <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <h4><a href="#top">Wanderlust</a></h4>
+            </li>
+            <li><a href="#top">  Home</a></li>
+            <li><a href="#about">  Login/Singup</a></li>
+            <li><a href="#services">  Favorites</a></li>
+             <div class ="login">
+            <% if not_logged_in? %>
+            <%=form_tag "/login" do %>
+            <%= label_tag :email%>
+            <%= text_field_tag :email, params[:email] %>
 
+            <%= label_tag :password %>
+            <%= password_field_tag :password %>
+
+         <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+        <%end%>
+  <%else%>
+  Hello, <%= current_user.name%>
+         <%= link_to "logout", "/logout", method: :delete%>
+  <%end%>
+ <%=link_to "create account", "/users/new" %>
+     </div>
+        </ul>
+    </nav>
+    
 <%= yield %>
 
 </body>

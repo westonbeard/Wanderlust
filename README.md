@@ -7,8 +7,8 @@ User Stories
 Users should be able to:
 
  - sign up and log in
- - search trail routes
- - look at a map of the trail
+ - search trails by zip code, or city/state name
+ - look at a list of trails with a link to the trail page
  - favorite trails
  - follow other users
  - comment on trails
@@ -18,13 +18,13 @@ Technologies Employed
 ------------
  - Rails
  - Everytrail API (http://www.everytrail.com/developer)
- 
-ERD
-------------
-This is an [ERD](erd.png)
 
 Setup
 -----
 	rake db:create
 	rake db:migrate
 	rake db:seed
+ 
+ERD
+------------
+![](erd.png)
