@@ -46,4 +46,19 @@ MQA.EventUtil.observe(window, 'load', function() {
     // enable zooming with your mouse
     map.enableMouseWheelZoom();
   });
+
+  // download the module
+  MQA.withModule('new-route', function() {
+ 
+    // uses the MQA.TileMap.addRoute function to pass in an array
+    // of locations as part of the request parameter
+    map.addRoute({
+      request: {
+        locations: [
+          { latLng: {lat: 39.637433, lng: -105.163867 }},
+          { latLng: {lat: 39.743943, lng: -105.020089 }}
+        ]
+      }
+    });
+  });
 });
