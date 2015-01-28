@@ -17,7 +17,7 @@
 <div id='map'></div>
 
 <script>
-L.mapbox.accessToken = '<your access token here>';
+L.mapbox.accessToken = 'pk.eyJ1Ijoid3VuZGVybHVzdGdhIiwiYSI6Ikw3YVFUU2MifQ.t5UwV9DbGLOTMoLZbvzMew';
 var map = L.mapbox.map('map', 'examples.map-i86nkdio');
 
 // omnivore will AJAX-request this file behind the scenes and parse it:
@@ -25,7 +25,7 @@ var map = L.mapbox.map('map', 'examples.map-i86nkdio');
 // - The file must either be on the same domain as the page that requests it,
 //   or both the server it is requested from and the user's browser must
 //   support CORS.
-var runLayer = omnivore.gpx('/mapbox.js/assets/data/run.gpx')
+var runLayer = omnivore.gpx('1971678.gpx')
     .on('ready', function() {
         map.fitBounds(runLayer.getBounds());
     })
