@@ -193,6 +193,24 @@ hr.small {
     /*background-color: #26281C*/
 }
 
+.trail-pic{
+    display: inline-block;
+    float: left;
+}
+
+#map{
+    border: 2px, solid, black;
+    vertical-align: middle;
+    height: 100%;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.mapbox {
+    height: 500px;
+    background-color: black;
+}
+
 /* Services */
 
 .services {
@@ -220,37 +238,6 @@ hr.small {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-}
-
-/* Portfolio */
-
-.portfolio {
-    padding: 50px 0;
-}
-
-.portfolio-item {
-    margin-bottom: 30px;
-}
-
-.img-portfolio {
-    margin: 0 auto;
-}
-
-.img-portfolio:hover {
-    opacity: 0.8;
-}
-
-/* Map */
-
-.map {
-    height: 500px;
-}
-
-@media(max-width:768px) {
-    .map {
-        height: 70%;
-        margin-top: 20px;
-    }
 }
 
 /* Footer */
