@@ -21,7 +21,7 @@ class MainController < ApplicationController
                       )
        #parse xml string into an Nokogiri xml document
        doc = Nokogiri.XML(@response.body)
-       #find the guides list in the search response
+       #find the guides nodelist in the search response
        @guides = doc.xpath('//guides')
   end
 
@@ -33,6 +33,7 @@ class MainController < ApplicationController
                       )
     doc = Nokogiri.XML(@response.body)
     @guides = doc.xpath('//guides')
+    render :template => "main/index"
   end
 
 
