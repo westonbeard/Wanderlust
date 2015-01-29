@@ -1,7 +1,7 @@
 var origin = { lat: 39.760000, lon: -105.020089 };
 var destination = {lat: 39.743943, lon: -105.020089 };
 
-var url = "/users/" + 3 + ".json"
+var url = "/users/" + gon.current_user_id + ".json"
 
 $.ajax({
   url: url,

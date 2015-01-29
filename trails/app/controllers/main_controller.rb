@@ -40,6 +40,10 @@ class MainController < ApplicationController
   def trail
   end
 
+  def directions
+    gon.current_user_id = current_user.id
+  end
+
   private 
 
   #gets ip of client
