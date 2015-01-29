@@ -1,5 +1,16 @@
-var origin = { lat: 39.760000, lng: -105.020089 };
-var destination = {lat: 39.743943, lng: -105.020089 };
+var origin = { lat: 39.760000, lon: -105.020089 };
+var destination = {lat: 39.743943, lon: -105.020089 };
+
+// Make a Ajax call to local sever (current_user.lan & current_user.lon)
+var url = "/users/1.json"
+$.ajax({
+  url: url,
+  dataType: "json",
+  type: "GET",
+  success: function( response ){
+    origin = { lat: response.lat, lon: response.lon };
+  }
+});
 
 MQA.EventUtil.observe(window, 'load', function() {
 	// create an object for options
@@ -7,10 +18,9 @@ MQA.EventUtil.observe(window, 'load', function() {
   elt: document.getElementById('map'),           // ID of map element on page
   zoom: 10,                                      // initial zoom level of the map
 
-  // Make a Ajax call to local sever (current_user.lan & current_user.lon)
   latLng: origin,  // center of map in latitude/longitude
     mtype: 'map',                                  // map type (map, sat, hyb); defaults to map
-    bestFitMargin: 0,                              // margin offset from map viewport when applying a bestfit on shapes
+    bestFitMargin: 0,                             // margin offset from map viewport when applying a bestfit on shapes
     zoomOnDoubleClick: true                        // enable map to be zoomed in when double-clicking on map
 	};
  

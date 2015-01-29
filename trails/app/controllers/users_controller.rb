@@ -8,6 +8,12 @@ skip_before_action :authorize
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(1)
+    respond_to do |format|
+      format.json { 
+        render json: @user
+      }
+    end
   end
 
   # GET /users/new
