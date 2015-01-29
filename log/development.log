@@ -61597,3 +61597,80 @@ Started GET "/assets/users-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 a
 
 
 Started GET "/assets/TrailProject-82b8096df6965ed0347259f1250253ba.jpg" for ::1 at 2015-01-29 17:43:11 -0500
+
+
+Started GET "/" for ::1 at 2015-01-29 17:57:13 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 2624ms (Views: 616.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.min-6ed30f14a4810d114a55884661837013.css?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/animate-8531238f7284e0703f7270a7437853ab.css?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/search-d6dccdb56d5182a3f2469eb8fcb0bcff.css?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/modernizr.custom-9bbba1e25ce3d093d3d18c4485e3b50d.js?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/bootstrap.css.map-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/main-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/users-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/stylish-portfolio-3d251c7be7c8e3038831bb7713c6714d.css?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/trails-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/scaffolds-443f56ba502ceb2b1989c9de43c259a1.css?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/application-31a93f6b9ab487030d1883fc343bf78a.css?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/jquery-a3b2e86b1881518c1464cc802d0f047b.js?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/main-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/trails-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/classie-54f4ec59867e6f1bc5817c412ebeb46b.js?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/bootstrap.min-aa417a3295cc717fa1c7cc560c45ceda.js?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/uisearch-7b78e9bf5ceebceb178cb89d3d626400.js?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/users-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/directions-373611b1246a93da7ed642e227572108.js?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/application-8d2c61ff3f1e27851a04f0407aa856c5.js?body=1" for ::1 at 2015-01-29 17:57:16 -0500
+
+
+Started GET "/assets/TrailProject-82b8096df6965ed0347259f1250253ba.jpg" for ::1 at 2015-01-29 17:57:17 -0500
