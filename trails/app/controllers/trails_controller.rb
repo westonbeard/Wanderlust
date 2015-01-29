@@ -15,6 +15,8 @@ class TrailsController < ApplicationController
     @lon = @trail.lon
     gon.lat = @lat
     gon.lon = @lon
+    gon.user_lat = current_user.latitude
+    gon.user_lon = current_user.longitude
 
       #respond_with(@trail) do |format|
        # format.js {render :json => @trail, :callback => params[:callback]}
