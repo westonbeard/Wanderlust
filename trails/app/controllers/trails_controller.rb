@@ -11,6 +11,10 @@ class TrailsController < ApplicationController
   # GET /trails/1.json
   def show
     @trail = Trail.find(params[:id])
+    @lat = @trail.lat
+    @lon = @trail.lon
+    gon.lat = @lat
+    gon.lon = @lon
 
       #respond_with(@trail) do |format|
        # format.js {render :json => @trail, :callback => params[:callback]}

@@ -1,5 +1,5 @@
-var origin = {}
-var destination = {}
+var origin = { lat: gon.lat, lng: gon.lon-0.00001 }
+var destination = { lat: gon.lat, lng: gon.lon }
 
 MQA.EventUtil.observe(window, 'load', function() {
 	// create an object for options
@@ -8,7 +8,7 @@ MQA.EventUtil.observe(window, 'load', function() {
   zoom: 10,                                      // initial zoom level of the map
 
   // Make a Ajax call to local sever (current_user.lan & current_user.lon)
-  latLng: { lat: 39.743943, lng: -105.020089 },  // center of map in latitude/longitude
+  latLng: origin,  // center of map in latitude/longitude
     mtype: 'map',                                  // map type (map, sat, hyb); defaults to map
     bestFitMargin: 0,                              // margin offset from map viewport when applying a bestfit on shapes
     zoomOnDoubleClick: true                        // enable map to be zoomed in when double-clicking on map
@@ -57,8 +57,8 @@ MQA.EventUtil.observe(window, 'load', function() {
     map.addRoute({
       request: {
         locations: [
-          { latLng: {lat: 39.637433, lng: -105.163867 }},
-          { latLng: {lat: 39.743943, lng: -105.020089 }}
+          { latLng: origin },
+          { latLng: destination }
         ]
       }
     });
