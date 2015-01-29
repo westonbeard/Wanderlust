@@ -1,17 +1,4 @@
-    <!-- Navigation -->
-    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
-    <nav id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-            <li class="sidebar-brand">
-                <h4><a class="menu-title" href="#top">Wanderlust</a></h4>
-            </li>
-            <li><a class="icon icon-location" href="#top">  Home</a></li>
-            <li><a class="icon icon-lock" href="#about">  Login/Singup</a></li>
-            <li><a class="icon icon-heart" href="#services">  Favorites</a></li>
-        </ul>
-    </nav>
-
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> 
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
@@ -33,12 +20,12 @@
                     <form>
                     <input class="sb-search-input" placeholder="Enter your search term..." type="search" value="" name="search" id="search">
                     <input class="sb-search-submit" type="submit" value="">
-                    <span class="sb-icon-search"></span>
+                    <span class="sb-icon-search"><i class="fa fa-search"></i></span>
                     </form>
                 </div>
-            </div>
+            
             <!-- /.row -->
-            <div class="row">
+            <div class="trail-info">
             <script>
                 var markers = []; //will contain list of coordinates
                 var titles = [];  //will contain list of text for bubble popup
@@ -46,17 +33,19 @@
             <ul>
                 <%# get the Nokogiri <guide> elements that are under <guides> %>
                     <% @guides.children.each do |guide| %>
-                    <li> 
+                    <div> 
                     <%# go through the many child elements of <guide> %>
                     <% guide.children.each do |child| %>
+                    <% if child.name == 'picture' %>
+                        <div class= "trail-pic">
+                                <%= image_tag child.children[0].text %>
+                        <% end %>
                         <% if child.name == 'title' %>
-                            title: <%= child.text %>
+                            <!-- <p><%= child.text %></p> -->
+                        </div>
                             <script>
                                 titles.push("<%= child.text %>");
                             </script>
-                        <% end %>
-                        <% if child.name == 'picture' %>
-                            <%= image_tag child.children[0].text %>
                         <% end %>
                         <% if child.name == 'location' %>
                             <% lat = child.attribute('lat')
@@ -67,7 +56,7 @@
                             </script>
                         <% end %>
                     <% end %>
-                    </li>
+                    </div>
                 <% end %>
             </ul>
             </div>
@@ -78,83 +67,14 @@
     </section>
 
     <!-- Map -->
-    <section id="contact" class="map">
-       <div id="map" style="height: 400px;width: 1000px;margin-left:100px"></div>
+    <section id="contact" class="mapbox">
+       <div id="map"></div>
     </section>
 
     <!-- Services -->
     <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
     <section id="services" class="services bg-primary">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <h2>Team Wanderlust</h2>
-                    <hr class="small">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="team-member">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-cloud fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    Matt Cho
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                           <div class="team-member">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-compass fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    Min McKnight
-                                </h4>
-
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="team-member">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-flask fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    Kurt Weber
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="team-member">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-shield fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    Weston Beard
-                                </h4>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="team-member">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-shield fa-stack-1x text-primary"></i>
-                            </span>
-                                <p>Andy Leonard</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.row (nested) -->
-                </div>
-                <!-- /.col-lg-10 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
+        
     </section>
 
     <!-- Callout -->
@@ -163,51 +83,6 @@
             <h1>Vertically Centered Text</h1>
         </div>
     </aside>
-
-    <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>Top Trails</h2>
-                    <hr class="small">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <%= image_tag "portfolio-1.jpg", :class => "img-portfolio img-responsive" %>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <%= image_tag "portfolio-2.jpg", :class => "img-portfolio img-responsive" %>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <%= image_tag "portfolio-3.jpg", :class => "img-portfolio img-responsive" %>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <%= image_tag "portfolio-4.jpg", :class => "img-portfolio img-responsive" %>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.col-lg-10 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
 
     <!-- Footer -->
     <footer>
@@ -229,7 +104,7 @@
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
-                        </li>
+                        </li> 
                         <li>
                             <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
                         </li>
@@ -296,53 +171,3 @@
     <script>
         new UISearch( document.getElementById( 'sb-search' ) );
     </script>
-
-
-
-
-<!-- 
-<script>
-    var markers = [];
-    var titles = [];
-</script>
-<h1>Trails</h1>
-<%= @user_ip %><br>
-<%= @coords %><br>
-<ul>
-<% @guides.children.each do |guide| %>
-    <li> 
-    <% guide.children.each do |child| %>
-      <% if child.name == 'title' %>
-       title: <%= child.text %>
-     <script>
-       titles.push(<%= child.text %>);
-     </script>
-      <% end %>
-      <% if child.name == 'picture' %>
-        <%= image_tag child.children[0].text %>
-      <% end %>
-      <% if child.name == 'location' %>
-    <% lat = child.attribute('lat')
-           lon = child.attribute('lon')
-      %>
-      <script>
-      markers.push([<%=lat%>,<%=lon%>]);
-    </script>
-      <% end %>
-    <% end %>
-    </li>
-<% end %>
-</ul>
-<div id="map" style="height: 400px;width: 600px"></div>
-<script>
-    var map = L.map('map').setView([39.0061, 77.4286], 13);
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-      maxZoom: 18
-    }).addTo(map);
-    for (var i = 0; i < markers.length; i++) {
-      L.marker(markers[i]).addTo(map);
-    var marker = L.marker(markers[i]).addTo(map);
-    marker.bindPopup(titles[i]);
-    }
-</script> -->
