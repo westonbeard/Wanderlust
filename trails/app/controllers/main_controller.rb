@@ -21,18 +21,19 @@ class MainController < ApplicationController
                       )
        #parse xml string into an Nokogiri xml document
        doc = Nokogiri.XML(@response.body)
-       #find the guides list in the search response
+       #find the guides nodelist in the search response
        @guides = doc.xpath('//guides')
   end
 
   #example search method (not working or linked to anything useful)
   def search
     search_query = params[:search]
-    @response = HTTParty.get("http://www.everytrail.com/api/index/search", :basic_auth => auth, :query => {:q => search_query, :limit => 10},
+    @response = HTTParty.get("http://www.everytrail.com/api/index/search", :basic_auth => auth, :query => {:q => search_query, :limit => 6},
                       :format => :xml
                       )
     doc = Nokogiri.XML(@response.body)
     @guides = doc.xpath('//guides')
+    render :template => "main/index"
   end
 
 

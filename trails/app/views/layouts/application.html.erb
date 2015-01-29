@@ -5,8 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Trails</title>
-  
-    <link rel="shortcut icon" href="../favicon.ico">
+
     <!-- Bootstrap Core CSS -->
     <%= stylesheet_link_tag "bootstrap.min.css" %>
 
@@ -14,7 +13,7 @@
     <!-- <%= stylesheet_link_tag "stylish-portfolio.scss" %> -->
     <%= stylesheet_link_tag "animate.css" %>
     <%= stylesheet_link_tag "search.css" %>
-    <%= stylesheet_link_tag "icons.css" %> 
+
 
     <%= javascript_include_tag "modernizr.custom.js" %>
 
@@ -33,24 +32,42 @@
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 </head>
 <body>
-  <header>
-  <% if not_logged_in? %>
-    <%=form_tag "/login" do %>
-        <%= label_tag :email%>
-        <%= text_field_tag :email, params[:email] %>
+   <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <h4><a href="#top">Wanderlust</a></h4>
+            </li>
+          <div class ="login">
+            <% if not_logged_in? %>
+            <li>
+              <%=form_tag "/login" do %>
+                <%= label_tag :email%>
+                <%= text_field_tag :email, params[:email] %>
+                <%= label_tag :password %>
+                <%= password_field_tag :password %>
+            </li>
+            <li>
+                <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+            </li>
+              <%end%>
+            <%else%>
 
-        <%= label_tag :password %>
-        <%= password_field_tag :password %>
-
-        <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
-      <%end%>
-  <%else%>
-  Hello, <%= current_user.name%>
-         <%= link_to "logout", "/logout", method: :delete%>
-  <%end%>
- <%=link_to "create account", "/users/new" %>
-     
-  </header>
+            <li><a href="#">Hello, <%= current_user.name%></a>
+            </li>
+            <li>
+              <%= link_to "Logout", "/logout", method: :delete%>
+            </li>
+            <%end%>
+            <li>
+            <%=link_to "Create account", "/users/new" %>
+            </li>
+        </div>
+        </ul>
+    </nav>
+    
 <%= yield %>
 
 </body>
