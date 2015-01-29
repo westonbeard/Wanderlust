@@ -13,7 +13,7 @@
     <!-- <%= stylesheet_link_tag "stylish-portfolio.scss" %> -->
     <%= stylesheet_link_tag "animate.css" %>
     <%= stylesheet_link_tag "search.css" %>
-
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> 
 
     <%= javascript_include_tag "modernizr.custom.js" %>
 
@@ -38,7 +38,7 @@
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <h4><a href="#top">Wanderlust</a></h4>
+                <h4><%= link_to 'Wanderlust', root_url%></h4>
             </li>
           <div class ="login">
             <% if not_logged_in? %>
@@ -67,8 +67,46 @@
         </div>
         </ul>
     </nav>
-    
+  
 <%= yield %>
 
+<%= render :partial => "layouts/footer"%>
+<!-- jQuery -->
+    <%= javascript_include_tag "jquery.js" %>
+  
+    <!-- Bootstrap Core JavaScript -->
+    <%= javascript_include_tag "bootstrap.min.js" %>
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
 </body>
 </html>
