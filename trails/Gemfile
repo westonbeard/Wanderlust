@@ -27,13 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'httparty'
 gem 'nokogiri'
-
-# for passing data into JavasScript
-gem 'gon'
-
-# for converting address into coordinates
-gem 'geocoder'
-
 # Use Unicorn as the app server
 # gem 'unicorn'
 
