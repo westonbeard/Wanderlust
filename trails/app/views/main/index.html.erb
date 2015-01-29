@@ -1,4 +1,4 @@
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> 
+
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
@@ -14,15 +14,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h1>You're closest to these trails</h1>
+                    <h1>Find the nearest trails</h1>
                 </div>
-                <!-- <div id="sb-search" class="sb-search">
-                    <form>
-                    <input class="sb-search-input" placeholder="Enter your search term..." type="search" value="" name="search" id="search">
-                    <input class="sb-search-submit" type="submit" value="">
-                    <span class="sb-icon-search"><i class="fa fa-search"></i></span>
-                    </form>
-                </div> -->
             
             <!-- /.row -->
             <div class="trail-info">
@@ -30,39 +23,21 @@
                 var markers = []; //will contain list of coordinates
                 var titles = [];  //will contain list of text for bubble popup
             </script>
-            <ul>
-                <%# get the Nokogiri <guide> elements that are under <guides> %>
-                    <% @guides.children.each do |guide| %>
-                    <div> 
-                    <%# go through the many child elements of <guide> %>
-                    <% guide.children.each do |child| %>
-                    <% if child.name == 'picture' %>
-                        <div class= "trail-pic">
-                                <%= image_tag child.children[0].text %>
-                        <% end %>
-                        <% if child.name == 'title' %>
-                            <!-- <p><%= child.text %></p> -->
-                        </div>
-                            <script>
-                                titles.push("<%= child.text %>");
-                            </script>
-                        <% end %>
-                        <% if child.name == 'location' %>
-                            <% lat = child.attribute('lat')
-                               lon = child.attribute('lon')
-                            %>
-                            <script>
-                                markers.push([<%=lat%>,<%=lon%>]);
-                            </script>
-                        <% end %>
-                    <% end %>
-                    </div>
-                <% end %>
-            </ul>
-            </div>
+            <% @guides.each do |guide| %>
+                <div class="trail-pic col-md-4">
+                    <%= image_tag guide['pic_url'], height:"100", width:"200" %>
+                
+                <p><%= link_to truncate(guide['title'], length: 20) ,new_trail_path(url: guide['url'], title: guide['title'], lat: guide['lat'],lon: guide['lon'] )  %></p> 
+                </div>
+                <script>
+                    titles.push("<%= guide['title'] %>");
+                    markers.push([<%=guide['lat']%>,<%=guide['lon']%>]);
+                </script>
+            <% end %>
         </div>
-        <div id="dir">
-        </div>
+    </div>
+    <div id="dir">
+    </div>
         <!-- /.container -->
     </section>
 
@@ -71,86 +46,9 @@
        <div id="map"></div>
     </section>
 
-    <!-- Team Photos -->
-    <section id="services" class="services bg-primary">
-        <div class="container">
-            <div class="row text-center">
-                    <h2>Team Wanderlust</h2>
-                <div class="col-lg-10 col-lg-offset-4">
-                     <div class="row">
-                        <div class="team-photo">
-                        <div class="col-md-2 col-sm-4">
-                            <div class="mattcho">
-                               </div>
-                                <h4>Matt Cho</h4>
-                        </div>
-                        <div class="col-md-2 col-sm-4">
-                           <div class="minmcknight">
-                            </div>
-                                <h4>Min McKnight</h4>
-                        </div>
-                        <div class="col-md-2 col-sm-4">
-                            <div class="andyleonard">                   
-                        </div>
-                                <h4>Andy Leonard</h4>
-                            </div>
-                            <div class="col-md-2 col-sm-4">
-                            <div class="kurtweber">
-                            </div>
-                                <h4>Kurt Weber</h4>
-                        </div>
-                        <div class="col-md-2 col-sm-4">
-                            <div class="westonbeard">   
-                            </div>
-                                <h4>Weston Beard</h4>
-                        </div>
-                        </div>
-                    </div>
-                    <!-- /.row (nested) -->
-                </div>
-                <!-- /.col-lg-10 -->
-            </div>
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h4><strong>Start Bootstrap</strong>
-                    </h4>
-                    <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com">name@example.com</a>
-                        </li>
-                    </ul>
-                    <br>
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
-                        </li> 
-                        <li>
-                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
-                        </li>
-                    </ul>
-                    <hr class="small">
-                    <p class="text-muted">Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
     <script>
-    //12 is zoom level
     var map = L.map('map').setView([<%=@coords[:lat]%>, <%=@coords[:lon]%>], 11);
+    map.scrollWheelZoom.disable();
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'OpenStreetMap',
       maxZoom: 18
@@ -161,45 +59,5 @@
     }
     </script>
 
-    <!-- jQuery -->
-    <%= javascript_include_tag "jquery.js" %>
-
-    <!-- Bootstrap Core JavaScript -->
-    <%= javascript_include_tag "bootstrap.min.js" %>
-
-    <!-- Custom Theme JavaScript -->
-    <script>
-    // Closes the sidebar menu
-    $("#menu-close").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-
-    // Opens the sidebar menu
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-
-    // Scrolls to the selected menu item on the page
-    $(function() {
-        $('a[href*=#]:not([href=#])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            }
-        });
-    });
-    </script>
-    <%= javascript_include_tag "classie.js" %>
-    <%= javascript_include_tag "uisearch.js" %>
-    <script>
-        new UISearch( document.getElementById( 'sb-search' ) );
-    </script>
+    
+   

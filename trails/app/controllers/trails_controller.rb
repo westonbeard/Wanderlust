@@ -1,6 +1,6 @@
 class TrailsController < ApplicationController
   before_action :set_trail, only: [:show, :edit, :update, :destroy]
-
+#respond_to :html, :xml, :json, :js
   # GET /trails
   # GET /trails.json
   def index
@@ -10,11 +10,20 @@ class TrailsController < ApplicationController
   # GET /trails/1
   # GET /trails/1.json
   def show
+    @trail = Trail.find(params[:id])
+
+      #respond_with(@trail) do |format|
+       # format.js {render :json => @trail, :callback => params[:callback]}
+      #end
   end
 
   # GET /trails/new
   def new
     @trail = Trail.new
+    @trail.url = params[:url]
+    @trail.name = params[:title]
+    @trail.lon = params[:lon]
+    @trail.lat = params[:lat]
   end
 
   # GET /trails/1/edit
@@ -69,6 +78,6 @@ class TrailsController < ApplicationController
     
 
         def trail_params
-        params.require(:trail).permit(:name, :url, :geocode, :comments)
+        params.require(:trail).permit(:name, :url, :lat, :lon )
         end
 end
