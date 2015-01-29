@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   geocoded_by :zipcode
+  after_validation :geocode
 end
