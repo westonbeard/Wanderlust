@@ -1,6 +1,6 @@
 class TrailsController < ApplicationController
   before_action :set_trail, only: [:show, :edit, :update, :destroy]
-
+respond_to :html, :xml, :json, :js
   # GET /trails
   # GET /trails.json
   def index
@@ -10,6 +10,11 @@ class TrailsController < ApplicationController
   # GET /trails/1
   # GET /trails/1.json
   def show
+    @trail = Trail.find(params:[id])
+
+      respond_with(@trail) do |format|
+        format.js {render :json => @product, :callback => params[:callback]}
+      end
   end
 
   # GET /trails/new

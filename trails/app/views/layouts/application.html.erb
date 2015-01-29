@@ -40,26 +40,31 @@
             <li class="sidebar-brand">
                 <h4><a href="#top">Wanderlust</a></h4>
             </li>
-            <li><a href="#top">  Home</a></li>
-            <li><a href="#about">  Login/Singup</a></li>
-            <li><a href="#services">  Favorites</a></li>
-             <div class ="login">
+          <div class ="login">
             <% if not_logged_in? %>
-            <%=form_tag "/login" do %>
-            <%= label_tag :email%>
-            <%= text_field_tag :email, params[:email] %>
+            <li>
+              <%=form_tag "/login" do %>
+                <%= label_tag :email%>
+                <%= text_field_tag :email, params[:email] %>
+                <%= label_tag :password %>
+                <%= password_field_tag :password %>
+            </li>
+            <li>
+                <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+            </li>
+              <%end%>
+            <%else%>
 
-            <%= label_tag :password %>
-            <%= password_field_tag :password %>
-
-         <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
-        <%end%>
-  <%else%>
-  Hello, <%= current_user.name%>
-         <%= link_to "logout", "/logout", method: :delete%>
-  <%end%>
- <%=link_to "create account", "/users/new" %>
-     </div>
+            <li><a href="#">Hello, <%= current_user.name%></a>
+            </li>
+            <li>
+              <%= link_to "Logout", "/logout", method: :delete%>
+            </li>
+            <%end%>
+            <li>
+            <%=link_to "Create account", "/users/new" %>
+            </li>
+        </div>
         </ul>
     </nav>
     
