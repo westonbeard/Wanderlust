@@ -42,13 +42,12 @@
                 <h4><%= link_to 'Wanderlust', root_url%></h4>
             </li>
           <div class ="login">
+            <h1>Login</h1>
             <% if not_logged_in? %>
             <li>
               <%=form_tag "/login" do %>
-                <%= label_tag :email%>
-                <%= text_field_tag :email, params[:email] %>
-                <%= label_tag :password %>
-                <%= password_field_tag :password %>
+                <%= text_field_tag :email, params[:email], :placeholder => 'Email' %>
+                <%= password_field_tag :password %>    
             </li>
             <li>
                 <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
@@ -62,7 +61,7 @@
               <%= link_to "Logout", "/logout", method: :delete%>
             </li>
             <%end%>
-            <li>
+            <li class="create-account">
             <%=link_to "Create account", "/users/new" %>
             </li>
         </div>
