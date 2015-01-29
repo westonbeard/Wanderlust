@@ -11,14 +11,14 @@
 </p>
 
 <p>
-  <strong>Geocode:</strong>
-  <%= @trail.geocode %>
+  <strong>Lat:</strong>
+  <%= @trail.lat %>
+</p>
+<p>
+  <strong>Lon:</strong>
+  <%= @trail.lon %>
 </p>
 
-<p>
-  <strong>Comments:</strong>
-  <%= @trail.comments %>
-</p>
 
 <%= link_to 'Edit', edit_trail_path(@trail) %> |
 <%= link_to 'Back', trails_path %>
