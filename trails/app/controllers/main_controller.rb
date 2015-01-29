@@ -28,7 +28,7 @@ class MainController < ApplicationController
   #example search method (not working or linked to anything useful)
   def search
     search_query = params[:search]
-    @response = HTTParty.get("http://www.everytrail.com/api/index/search", :basic_auth => auth, :query => {:q => search_query, :limit => 10},
+    @response = HTTParty.get("http://www.everytrail.com/api/index/search", :basic_auth => auth, :query => {:q => search_query, :limit => 6},
                       :format => :xml
                       )
     doc = Nokogiri.XML(@response.body)
