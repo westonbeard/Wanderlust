@@ -1,4 +1,4 @@
-var origin = { lat: gon.lat, lng: gon.lon-0.00001 }
+var origin = { lat: 38.912068, lng: -77.0190228 }
 var destination = { lat: gon.lat, lng: gon.lon }
 
 MQA.EventUtil.observe(window, 'load', function() {
