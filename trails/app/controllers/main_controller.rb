@@ -16,7 +16,7 @@ class MainController < ApplicationController
       @coords = get_lat_lon(@user_ip)
       #queries everytrail api based on current location, gets xml string response
        @response = HTTParty.get("http://www.everytrail.com/api/index/search", :basic_auth => auth, :query => {:lat => @coords[:lat], :lon => @coords[:lon],
-                      :proximity => 25, :limit => 11},
+                      :proximity => 25, :limit => 6},
                       :format => :xml
                       )
        #parse xml string into an Nokogiri xml document
