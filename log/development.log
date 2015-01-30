@@ -61674,3 +61674,39 @@ Started GET "/assets/application-8d2c61ff3f1e27851a04f0407aa856c5.js?body=1" for
 
 
 Started GET "/assets/TrailProject-82b8096df6965ed0347259f1250253ba.jpg" for ::1 at 2015-01-29 17:57:17 -0500
+
+
+Started GET "/trails/new?lat=38.824726&lon=-77.7057745&title=Bull+Run+Mountain+Conservatory&url=bull-run-mountain-conservatory" for ::1 at 2015-01-29 18:04:41 -0500
+Processing by TrailsController#new as HTML
+  Parameters: {"lat"=>"38.824726", "lon"=>"-77.7057745", "title"=>"Bull Run Mountain Conservatory", "url"=>"bull-run-mountain-conservatory"}
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-01-29 18:04:41 -0500
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 2394ms (Views: 479.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trails/new?lat=38.824726&lon=-77.7057745&title=Bull+Run+Mountain+Conservatory&url=bull-run-mountain-conservatory" for ::1 at 2015-01-29 18:04:44 -0500
+Processing by TrailsController#new as HTML
+  Parameters: {"lat"=>"38.824726", "lon"=>"-77.7057745", "title"=>"Bull Run Mountain Conservatory", "url"=>"bull-run-mountain-conservatory"}
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-01-29 18:04:44 -0500
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 2012ms (Views: 467.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-a3b2e86b1881518c1464cc802d0f047b.js?body=1" for ::1 at 2015-01-29 18:04:46 -0500
+
+
+Started GET "/assets/bootstrap.min-aa417a3295cc717fa1c7cc560c45ceda.js?body=1" for ::1 at 2015-01-29 18:04:46 -0500
